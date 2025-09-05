@@ -1,0 +1,246 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  background: url("background 1.jpg") no-repeat center center fixed;
+  background-size: cover; /* makes sure the image fills the screen */
+  color: #fff; /* keep text readable */
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hero Image Animation */
+.hero-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  animation: shrinkImage 2s ease forwards;
+  z-index: 1;
+}
+
+@keyframes shrinkImage {
+  0% {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  100% {
+    width: 40vw;
+    height: 80vh;
+    left: 20%;
+    border-radius: 20px;
+  }
+}
+
+/* Hero Text */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  margin-left: 55%;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 2s;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #d37644;
+}
+
+.hero-text h2 {
+  font-size: 1.8rem;
+  margin-top: 10px;
+  color: #A67B5B;
+}
+
+.hero-text p {
+  margin-top: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e2c2a3;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #d37644;
+  color: #000;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #ffdb70;
+}
+
+/* Slide-in Animations */
+.slide-in {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.delay1 { animation-delay: 2.5s; }
+.delay2 { animation-delay: 3s; }
+.delay3 { animation-delay: 3.5s; }
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Portfolio */
+.portfolio {
+  padding: 50px;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Portfolio Items */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* smaller size */
+  gap: 20px;
+  justify-items: center; /* centers videos/images */
+}
+
+.portfolio-grid video,
+.portfolio-grid img {
+  width: 250px;     /* fixed size */
+  max-width: 100%;  /* responsive safety */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* Portfolio Grid Spacing */
+.portfolio h3 {
+  margin-top: 40px;   /* space above each heading */
+  margin-bottom: 20px; /* space below each heading */
+}
+
+.portfolio-grid {
+  gap: 20px;          /* space between items in the row */
+  margin-bottom: 40px; /* space below each row */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Booking section */
+.booking {
+  text-align: center;
+  padding: 50px 20px;
+  background: #4B3621;
+}
+
+.booking h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.booking-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+footer .socials {
+  margin: 15px 0;
+}
+
+footer .socials a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer .socials a:hover {
+  text-decoration: underline;
+}
+
+.booking p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.booking h2 {
+  color: #fff;
+}
+
+/* ========== MOBILE FIXES ========== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem; /* smaller name */
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem; /* smaller subtitle */
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 10px; /* keep inside screen */
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
